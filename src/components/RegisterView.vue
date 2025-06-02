@@ -113,7 +113,7 @@
                 </option>
               </select>
               <button 
-                @click="quickSetValue && quickSetRegister && updateRegisterValue(quickSetRegister, { target: { value: quickSetValue } })" 
+                @click="setQuickValue" 
                 class="btn btn-primary"
                 :disabled="readonly || !quickSetValue || !quickSetRegister"
               >
@@ -329,6 +329,12 @@ function randomizeRegisters() {
     const randomValue = Math.floor(Math.random() * 0x100000000) // 32位随机数
     emit('updateRegister', reg.name, randomValue)
   })
+}
+
+function setQuickValue() {
+  if (quickSetValue.value !== null && quickSetRegister.value) {
+    emit('updateRegister', quickSetRegister.value, quickSetValue.value)
+  }
 }
 </script>
 

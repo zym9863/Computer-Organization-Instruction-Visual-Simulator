@@ -294,7 +294,7 @@ const activeSignalCount = computed(() => {
 watch(() => props.signals, (newSignals, oldSignals) => {
   if (oldSignals) {
     signalChangeCount.value++
-    signalHistory.value.push({ ...oldSignals })
+    signalHistory.value.push({ ...newSignals })
     
     // 保持历史记录不超过8个周期
     if (signalHistory.value.length > 8) {

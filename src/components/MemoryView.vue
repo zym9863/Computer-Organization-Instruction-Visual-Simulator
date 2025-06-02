@@ -104,7 +104,7 @@
                 :key="index"
                 class="data-cell"
                 :class="{
-                  highlighted: highlightedAddresses.includes(row.address + index * 4),
+                  highlighted: highlightedAddresses?.includes(row.address + index * 4),
                   modified: isAddressModified(row.address + index * 4)
                 }"
                 @click="selectCell(row.address + index * 4)"
